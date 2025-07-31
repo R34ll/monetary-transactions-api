@@ -1,0 +1,5 @@
+/workspaces/monetary-transactions-api-/api-backend/src/test/java/domain/entities/TransactionTest.java
+/workspaces/monetary-transactions-api-/api-backend/src/test/java/domain/exceptions/InsufficientFoundsExceptionTest.java
+/workspaces/monetary-transactions-api-/api-backend/src/test/java/domain/services/TransferServiceTest.java
+/workspaces/monetary-transactions-api-/api-backend/src/test/java/domain/valueobjects/EmailTest.java
+/workspaces/monetary-transactions-api-/api-backend/src/test/java/domain/valueobjects/NameTest.java
