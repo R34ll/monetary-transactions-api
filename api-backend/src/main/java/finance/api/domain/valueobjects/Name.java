@@ -1,7 +1,7 @@
 public class Name{
     private final String name;
 
-    constructor(String name){
+    public Name(String name){
         
         // 1. Must not be null or blank (ensures the name has meaningful content)
 
