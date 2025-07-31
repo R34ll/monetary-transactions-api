@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
-Test set: NameTest
+Test set: EmailTest
 -------------------------------------------------------------------------------
-Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.169 s -- in NameTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.041 s -- in EmailTest
