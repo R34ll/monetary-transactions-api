@@ -1,0 +1,17 @@
+finance/api/domain/valueobjects/Cnpj.class
+Transaction.class
+User$UserType.class
+finance/api/domain/valueobjects/Name.class
+Account$Status.class
+finance/api/domain/valueobjects/Cpf.class
+finance/api/domain/valueobjects/Timestamp.class
+finance/api/Main.class
+User.class
+Account.class
+finance/api/domain/valueobjects/Password.class
+finance/api/domain/valueobjects/Money.class
+finance/api/domain/valueobjects/EntityId.class
+Transaction$Status.class
+finance/api/domain/valueobjects/Email.class
+finance/api/domain/valueobjects/DocumentFactory.class
+finance/api/domain/valueobjects/Document.class

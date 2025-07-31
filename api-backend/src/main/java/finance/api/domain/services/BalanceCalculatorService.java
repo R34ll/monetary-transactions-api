@@ -1,0 +1,1 @@
+// Calcula saldo total com base em movimentações
