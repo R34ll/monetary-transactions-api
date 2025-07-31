@@ -5,3 +5,4 @@
 /workspaces/monetary-transactions-api-/api-backend/src/test/java/domain/valueobjects/CpfTest.java
 /workspaces/monetary-transactions-api-/api-backend/src/test/java/domain/valueobjects/EmailTest.java
 /workspaces/monetary-transactions-api-/api-backend/src/test/java/domain/valueobjects/NameTest.java
+/workspaces/monetary-transactions-api-/api-backend/src/test/java/domain/valueobjects/PasswordTest.java
