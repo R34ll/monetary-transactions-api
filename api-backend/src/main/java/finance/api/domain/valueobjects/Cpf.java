@@ -1,42 +1,33 @@
-public final class Cpf{
-    private final String cpf;
+package finance.api.domain.valueobjects;
+/**
+ * Represents a CPF (Cadastro de Pessoas Físicas) document.
+ * This class extends the Document class and provides validation specific to CPF.
+ */
+public class Cpf extends Document{
+    public Cpf(String value){
+        super(value);
+    }
 
-    public Cpf(String cpf){
-        
-        // 1. Check if the input is null or blank
-        if (cpf == null || cpf.isBlank()) {
+    @Override
+    protected boolean isValid(String value){
+        if( value == null || value.isBlank()) {
             throw new IllegalArgumentException("CPF cannot be null or blank");
         }
 
-        // 2. Remove non-digit characters and validate the length xxx.xxx.xxx-xx to xxxxxxxxxxx
-        String sanitized = cpf.replaceAll("\\D", "");
-
-        // 3. Validate the sanitized CPF
-        if (!sanitized.matches("\\d{11}")) {
+        if (!value.matches("\\d{11}")) {
             throw new IllegalArgumentException("CPF must contain exactly 11 digits");
         }
 
-        // 4. Check if the CPF has all digits equal (e.g., 111.111.111-11)
-        if (sanitized.chars().distinct().count() == 1) {
+        if (value.chars().distinct().count() == 1) {
             throw new IllegalArgumentException("CPF cannot have all digits equal");
         }
 
-        // 5. Validate the CPF using a checksum algorithm
-        if (!isValidCpf(sanitized)) {
-            throw new IllegalArgumentException("Invalid CPF");
-        }
-
-
-        this.cpf = cpf;
+        return true;
     }
+    
 
-    // TODO: implement the CPF validation logic used by government
-    private boolean isValidCpf(String cpf){
-        return false;
+    @Override
+    public String getType() {
+        return "CPF";
     }
-
-    public String getValue() {
-        return cpf;
-    }
-
 }

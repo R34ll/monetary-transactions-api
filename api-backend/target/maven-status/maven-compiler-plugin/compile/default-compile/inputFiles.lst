@@ -9,7 +9,11 @@
 /workspaces/monetary-transactions-api-/api-backend/src/main/java/finance/api/domain/services/TransferAuthorizationService.java
 /workspaces/monetary-transactions-api-/api-backend/src/main/java/finance/api/domain/valueobjects/Cnpj.java
 /workspaces/monetary-transactions-api-/api-backend/src/main/java/finance/api/domain/valueobjects/Cpf.java
+/workspaces/monetary-transactions-api-/api-backend/src/main/java/finance/api/domain/valueobjects/Document.java
+/workspaces/monetary-transactions-api-/api-backend/src/main/java/finance/api/domain/valueobjects/DocumentFactory.java
 /workspaces/monetary-transactions-api-/api-backend/src/main/java/finance/api/domain/valueobjects/Email.java
+/workspaces/monetary-transactions-api-/api-backend/src/main/java/finance/api/domain/valueobjects/EntityId.java
 /workspaces/monetary-transactions-api-/api-backend/src/main/java/finance/api/domain/valueobjects/Money.java
 /workspaces/monetary-transactions-api-/api-backend/src/main/java/finance/api/domain/valueobjects/Name.java
 /workspaces/monetary-transactions-api-/api-backend/src/main/java/finance/api/domain/valueobjects/Password.java
+/workspaces/monetary-transactions-api-/api-backend/src/main/java/finance/api/domain/valueobjects/Timestamp.java

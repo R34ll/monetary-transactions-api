@@ -1,3 +1,6 @@
+package finance.api.domain.valueobjects;
+
+
 public class Email {
     private final String email;
     
@@ -8,6 +11,11 @@ public class Email {
         this.email = email;
     }
 
+    /**
+     * Returns the email value.
+     *
+     * @return the email as a String
+     */
     public String getValue() {
         return email;
     }

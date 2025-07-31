@@ -1,12 +1,18 @@
-public final class Cnpj {
-    private final String cnpj;
+package finance.api.domain.valueobjects;
+
+public class Cnpj extends Document {
 
     public Cnpj(String cnpj) {
-        if (cnpj == null || cnpj.isBlank()) {
+        super(cnpj);
+    }
+
+    @Override
+    protected boolean isValid(String value) {
+        if (value == null || value.isBlank()) {
             throw new IllegalArgumentException("CNPJ cannot be null or blank");
         }
 
-        String sanitized = cnpj.replaceAll("\\D", "");
+        String sanitized = value.replaceAll("\\D", "");
 
         if (!sanitized.matches("\\d{14}")) {
             throw new IllegalArgumentException("CNPJ must contain exactly 14 digits");
@@ -16,19 +22,12 @@ public final class Cnpj {
             throw new IllegalArgumentException("CNPJ cannot have all digits equal");
         }
 
-        // if (!isValidCnpj(sanitized)) {
-        //     throw new IllegalArgumentException("Invalid CNPJ");
-        // }
-
-        this.cnpj = cnpj;
+        return true;
+    }
+    
+    @Override
+    public String getType() {
+        return "CNPJ";
     }
 
-    // TODO: Implement CNPJ validation logic
-    private boolean isValidCnpj(String cnpj) {
-        return false;
-    }
-
-    public String getValue() {
-        return cnpj;
-    }
 }

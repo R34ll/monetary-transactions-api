@@ -1,3 +1,5 @@
+package finance.api.domain.valueobjects;
+
 public final class Password {
     private final String value;
 

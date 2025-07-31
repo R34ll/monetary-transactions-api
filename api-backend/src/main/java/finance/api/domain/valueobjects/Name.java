@@ -1,3 +1,5 @@
+package finance.api.domain.valueobjects;
+
 public class Name{
     private final String name;
 

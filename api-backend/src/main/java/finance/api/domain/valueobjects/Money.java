@@ -1,3 +1,5 @@
+package finance.api.domain.valueobjects;
+
 import java.math.BigDecimal;
 
 public final class Money {
