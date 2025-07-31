@@ -13,13 +13,13 @@ public class CpfTest {
     @Test
     void shouldThrowExceptionWhenCpfIsNull() {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> new Cpf(null));
-        assertEquals("CPF cannot be null", exception.getMessage());
+        assertEquals("CPF cannot be null or blank", exception.getMessage());
     }
 
     @Test
     void shouldThrowExceptionWhenCpfIsBlank() {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> new Cpf("   "));
-        assertEquals("CPF cannot be blank", exception.getMessage());
+        assertEquals("CPF cannot be null or blank", exception.getMessage());
     }
 
     @Test
