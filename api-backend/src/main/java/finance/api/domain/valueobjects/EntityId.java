@@ -2,7 +2,7 @@ package finance.api.domain.valueobjects;
 
 import java.util.UUID;
 
-public final class EntityId{
+public final class EntityId{ // TODO: Use a more complex ID generation strategy 
     private final UUID value;
 
     public EntityId(UUID value) {

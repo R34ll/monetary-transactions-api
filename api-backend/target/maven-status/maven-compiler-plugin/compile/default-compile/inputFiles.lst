@@ -4,6 +4,12 @@
 /workspaces/monetary-transactions-api-/api-backend/src/main/java/finance/api/domain/entities/User.java
 /workspaces/monetary-transactions-api-/api-backend/src/main/java/finance/api/domain/exceptions/InsufficientFoundException.java
 /workspaces/monetary-transactions-api-/api-backend/src/main/java/finance/api/domain/exceptions/InvalidTransactionAmountException.java
+/workspaces/monetary-transactions-api-/api-backend/src/main/java/finance/api/domain/exceptions/PasswordMissingDigitException.java
+/workspaces/monetary-transactions-api-/api-backend/src/main/java/finance/api/domain/exceptions/PasswordMissingLowercaseException.java
+/workspaces/monetary-transactions-api-/api-backend/src/main/java/finance/api/domain/exceptions/PasswordMissingSpecialCharacterException.java
+/workspaces/monetary-transactions-api-/api-backend/src/main/java/finance/api/domain/exceptions/PasswordMissingUppercaseException.java
+/workspaces/monetary-transactions-api-/api-backend/src/main/java/finance/api/domain/exceptions/PasswordNullOrBlankException.java
+/workspaces/monetary-transactions-api-/api-backend/src/main/java/finance/api/domain/exceptions/PasswordTooShortException.java
 /workspaces/monetary-transactions-api-/api-backend/src/main/java/finance/api/domain/exceptions/SelfTransferNotAllowedException.java
 /workspaces/monetary-transactions-api-/api-backend/src/main/java/finance/api/domain/services/BalanceCalculatorService.java
 /workspaces/monetary-transactions-api-/api-backend/src/main/java/finance/api/domain/services/TransferAuthorizationService.java
