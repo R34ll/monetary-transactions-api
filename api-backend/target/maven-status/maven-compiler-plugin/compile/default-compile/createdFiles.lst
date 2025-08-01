@@ -17,6 +17,7 @@ finance/api/domain/exceptions/NameTooLongException.class
 User$UserType.class
 Account$Status.class
 finance/api/domain/valueobjects/Cpf.class
+finance/api/domain/exceptions/EmailInvalidFormatException.class
 finance/api/domain/valueobjects/Timestamp.class
 finance/api/domain/exceptions/NameInvalidCharactersException.class
 finance/api/Main.class

@@ -1,4 +1,6 @@
-public class EmailInvalidFormatException extends DomainException {
+package finance.api.domain.exceptions;
+
+public class EmailInvalidFormatException extends IllegalArgumentException {
     public EmailInvalidFormatException() {
         super("The provided email format is invalid.");
     }

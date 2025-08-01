@@ -1,5 +1,6 @@
 package finance.api.domain.valueobjects;
 
+import finance.api.domain.exceptions.EmailInvalidFormatException;
 
 public class Email {
     private final String email;

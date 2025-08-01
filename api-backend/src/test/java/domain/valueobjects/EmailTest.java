@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
+import finance.api.domain.exceptions.EmailInvalidFormatException;
 import finance.api.domain.valueobjects.Email;
 
 
@@ -14,26 +15,26 @@ public class EmailTest {
 
     @Test
     void emailCannotBeNull() {
-        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+        EmailInvalidFormatException exception = assertThrows(EmailInvalidFormatException.class, () -> {
             new Email(null);
         });
-        assertEquals("Invalid email format", exception.getMessage());
+        assertEquals("The provided email format is invalid.", exception.getMessage());
     }
 
     @Test
     void emailMustContainAtSymbol() {
-        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+        EmailInvalidFormatException exception = assertThrows(EmailInvalidFormatException.class, () -> {
             new Email("userexample.com");
         });
-        assertEquals("Invalid email format", exception.getMessage());
+        assertEquals("The provided email format is invalid.", exception.getMessage());
     }
 
     @Test
     void emailCannotContainSpaces() {
-        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+        EmailInvalidFormatException exception = assertThrows(EmailInvalidFormatException.class, () -> {
             new Email("user @example.com");
         });
-        assertEquals("Invalid email format", exception.getMessage());
+        assertEquals("The provided email format is invalid.", exception.getMessage());
     }
 
     @Test
@@ -44,9 +45,9 @@ public class EmailTest {
 
     @Test
     void emailWithInvalidCharacters() {
-        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+        IllegalArgumentException exception = assertThrows(EmailInvalidFormatException.class, () -> {
             new Email("user!@example.com");
         });
-        assertEquals("Invalid email format", exception.getMessage());
+        assertEquals("The provided email format is invalid.", exception.getMessage());
     }
 }
