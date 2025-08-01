@@ -1,3 +1,4 @@
+package finance.api.domain.entities;
 
 import finance.api.domain.valueobjects.Document;
 import finance.api.domain.valueobjects.DocumentFactory;
@@ -9,7 +10,7 @@ import finance.api.domain.valueobjects.Password;
 
 public class User{
 
-    private enum UserType {
+    public enum UserType {
         CUSTOMER,
         MERCHANT
     }
