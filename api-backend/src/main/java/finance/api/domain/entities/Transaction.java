@@ -1,3 +1,5 @@
+package finance.api.domain.entities;
+
 import java.security.Timestamp;
 
 import finance.api.domain.valueobjects.EntityId;

@@ -1,12 +1,13 @@
 package finance.api.domain.valueobjects;
 
+import finance.api.domain.exceptions.EmailInvalidFormatException;
 
 public class Email {
     private final String email;
     
     public Email(String email){
         if (email == null || !email.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$")) {
-            throw new IllegalArgumentException("Invalid email format");
+            throw new EmailInvalidFormatException();
         }
         this.email = email;
     }

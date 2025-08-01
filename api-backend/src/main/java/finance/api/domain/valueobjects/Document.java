@@ -10,9 +10,7 @@ public abstract class Document{
         if( !isValid(this.value)){
             throw new IllegalArgumentException("Invalid document format");
         }
-
     }
-
 
     protected abstract boolean isValid(String value);
     

@@ -1,7 +1,7 @@
 package finance.api.domain.valueobjects;
 
 
-public final class Timestamp{
+public final class Timestamp{ // TODO: Improve this to use Instant or LocalDateTime
     private final long value;
 
     public Timestamp(long value) {

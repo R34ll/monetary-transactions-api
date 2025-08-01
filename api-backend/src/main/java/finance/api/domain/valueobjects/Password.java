@@ -1,31 +1,32 @@
 package finance.api.domain.valueobjects;
+import finance.api.domain.exceptions.*;;
 
 public final class Password {
     private final String value;
 
     public Password(String value) {
         if (value == null || value.isBlank()) {
-            throw new IllegalArgumentException("Password cannot be null or blank");
+            throw new PasswordNullOrBlankException();
         }
 
         if (value.length() < 8) {
-            throw new IllegalArgumentException("Password must be at least 8 characters long");
+            throw new PasswordTooShortException();
         }
 
         if (!value.matches(".*[A-Z].*")) {
-            throw new IllegalArgumentException("Password must contain at least one uppercase letter");
+            throw new PasswordMissingUppercaseException();
         }
 
         if (!value.matches(".*[a-z].*")) {
-            throw new IllegalArgumentException("Password must contain at least one lowercase letter");
+            throw new PasswordMissingLowercaseException();
         }
 
         if (!value.matches(".*\\d.*")) {
-            throw new IllegalArgumentException("Password must contain at least one digit");
+            throw new PasswordMissingDigitException();
         }
 
         if (!value.matches(".*[!@#$%^&*()_+=\\-\\[\\]{};:'\",.<>?/\\\\|`~].*")) {
-            throw new IllegalArgumentException("Password must contain at least one special character");
+            throw new PasswordMissingSpecialCharacterException();
         }
 
         this.value = value;

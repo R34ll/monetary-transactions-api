@@ -1,3 +1,4 @@
+package finance.api.domain.entities;
 import finance.api.domain.valueobjects.EntityId;
 import finance.api.domain.valueobjects.Money;
 
