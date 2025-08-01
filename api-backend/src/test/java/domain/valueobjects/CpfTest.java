@@ -1,46 +1,54 @@
-// import org.junit.jupiter.api.Test;
-// import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
-// public class CpfTest {
+import finance.api.domain.exceptions.CpfAllDigitsEqualException;
+import finance.api.domain.exceptions.CpfInvalidLengthException;
+import finance.api.domain.exceptions.CpfNullOrBlankException;
 
-//     @Test
-//     void shouldCreateCpfWithValidFormat() {
-//         String validCpf = "123.456.789-09"; // TODO: formatado, mas inválido (por enquanto o algoritmo retorna false)
-//         Exception exception = assertThrows(IllegalArgumentException.class, () -> new Cpf(validCpf));
-//         assertEquals("Invalid CPF", exception.getMessage());
-//     }
+import finance.api.domain.valueobjects.Cpf;
 
-//     @Test
-//     void shouldThrowExceptionWhenCpfIsNull() {
-//         Exception exception = assertThrows(IllegalArgumentException.class, () -> new Cpf(null));
-//         assertEquals("CPF cannot be null or blank", exception.getMessage());
-//     }
+import static org.junit.jupiter.api.Assertions.*;
 
-//     @Test
-//     void shouldThrowExceptionWhenCpfIsBlank() {
-//         Exception exception = assertThrows(IllegalArgumentException.class, () -> new Cpf("   "));
-//         assertEquals("CPF cannot be null or blank", exception.getMessage());
-//     }
+public class CpfTest {
 
-//     @Test
-//     void shouldThrowExceptionWhenCpfHasInvalidLength() {
-//         Exception exception = assertThrows(IllegalArgumentException.class, () -> new Cpf("1234567890"));
-//         assertEquals("CPF must contain exactly 11 digits", exception.getMessage());
-//     }
+    @Test
+    void shouldCreateCpfWithValidFormat() {
+        String validCpf = "123.456.789-09";
 
-//     @Test
-//     void shouldThrowExceptionWhenAllDigitsAreEqual() {
-//         Exception exception = assertThrows(IllegalArgumentException.class, () -> new Cpf("111.111.111-11"));
-//         assertEquals("CPF cannot have all digits equal", exception.getMessage());
-//     }
+        Cpf cpf = new Cpf(validCpf);
+        assertEquals("CPF", cpf.getType()); 
+    }
 
-//     @Test
-//     void shouldStoreOriginalFormat() {
-//         String input = "123.456.789-09";
-//         try {
-//             new Cpf(input); // for now invalid
-//         } catch (IllegalArgumentException e) {
-//             assertEquals("Invalid CPF", e.getMessage());
-//         }
-//     }
-// }
+    @Test
+    void shouldThrowExceptionWhenCpfIsNull() {
+        Exception exception = assertThrows(CpfNullOrBlankException.class, () -> new Cpf(null));
+        assertEquals("CPF cannot be null or blank", exception.getMessage());
+    }
+
+    @Test
+    void shouldThrowExceptionWhenCpfIsBlank() {
+        Exception exception = assertThrows(CpfNullOrBlankException.class, () -> new Cpf("   "));
+        assertEquals("CPF cannot be null or blank", exception.getMessage());
+    }
+
+    @Test
+    void shouldThrowExceptionWhenCpfHasInvalidLength() {
+        Exception exception = assertThrows(CpfInvalidLengthException.class, () -> new Cpf("1234567890"));
+        assertEquals("CPF must contain exactly 11 digits", exception.getMessage());
+    }
+
+    @Test
+    void shouldThrowExceptionWhenAllDigitsAreEqual() {
+        Exception exception = assertThrows(CpfAllDigitsEqualException.class, () -> new Cpf("111.111.111-11"));
+        assertEquals("CPF cannot have all digits equal", exception.getMessage());
+    }
+
+    @Test
+    void shouldStoreOriginalFormat() {
+        String input = "123.456.789-09";
+        try {
+            new Cpf(input); // for now invalid
+        } catch (IllegalArgumentException e) {
+            assertEquals("Invalid CPF", e.getMessage());
+        }
+    }
+}

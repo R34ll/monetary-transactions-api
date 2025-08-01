@@ -22,9 +22,12 @@ Account$Status.class
 finance/api/domain/valueobjects/Cpf.class
 finance/api/domain/exceptions/EmailInvalidFormatException.class
 finance/api/domain/valueobjects/Timestamp.class
+finance/api/domain/exceptions/CpfInvalidLengthException.class
+finance/api/domain/exceptions/CpfAllDigitsEqualException.class
 finance/api/domain/exceptions/NameInvalidCharactersException.class
 finance/api/Main.class
 finance/api/domain/valueobjects/Password.class
 finance/api/domain/exceptions/PasswordMissingLowercaseException.class
 finance/api/domain/valueobjects/DocumentFactory.class
+finance/api/domain/exceptions/CpfNullOrBlankException.class
 finance/api/domain/valueobjects/Document.class
