@@ -1,5 +1,6 @@
 MoneyTest.class
 NameTest.class
 PasswordTest.class
+CnpjTest.class
 finance/api/domain/valueobjects/DocumentFactoryTest.class
 EmailTest.class

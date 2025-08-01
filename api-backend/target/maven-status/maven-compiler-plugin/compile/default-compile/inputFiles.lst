@@ -2,6 +2,9 @@
 /workspaces/monetary-transactions-api-/api-backend/src/main/java/finance/api/domain/entities/Account.java
 /workspaces/monetary-transactions-api-/api-backend/src/main/java/finance/api/domain/entities/Transaction.java
 /workspaces/monetary-transactions-api-/api-backend/src/main/java/finance/api/domain/entities/User.java
+/workspaces/monetary-transactions-api-/api-backend/src/main/java/finance/api/domain/exceptions/CnpjAllDigitsEqualException.java
+/workspaces/monetary-transactions-api-/api-backend/src/main/java/finance/api/domain/exceptions/CnpjInvalidLengthException.java
+/workspaces/monetary-transactions-api-/api-backend/src/main/java/finance/api/domain/exceptions/CnpjNullOrBlankException.java
 /workspaces/monetary-transactions-api-/api-backend/src/main/java/finance/api/domain/exceptions/EmailInvalidFormatException.java
 /workspaces/monetary-transactions-api-/api-backend/src/main/java/finance/api/domain/exceptions/InsufficientFoundException.java
 /workspaces/monetary-transactions-api-/api-backend/src/main/java/finance/api/domain/exceptions/InvalidTransactionAmountException.java
