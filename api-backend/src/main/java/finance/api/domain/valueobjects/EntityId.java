@@ -1,22 +1,17 @@
 package finance.api.domain.valueobjects;
 
-import java.util.UUID;
 
-public final class EntityId{ // TODO: Use a more complex ID generation strategy 
-    private final UUID value;
+public final class EntityId{ 
+    private final String value;
 
-    public EntityId(UUID value) {
-        if (value == null) {
-            throw new IllegalArgumentException("Entity ID cannot be null");
+    public EntityId(String value) {
+        if (value == null || value.isBlank()) {
+            throw new IllegalArgumentException("Entity ID cannot be null or blank");
         }
         this.value = value;
     }
 
-    // public UUID generate() {
-    //     return UUID.randomUUID();
-    // }
-
-    public UUID getValue() {
+    public String getValue() {
         return value;
     };
 }
