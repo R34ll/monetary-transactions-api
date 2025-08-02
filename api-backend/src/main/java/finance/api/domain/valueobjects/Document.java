@@ -8,7 +8,7 @@ public abstract class Document{
         this.value = normalize(value);
 
         if( !isValid(this.value)){
-            throw new IllegalArgumentException("Invalid document format");
+            throw new IllegalArgumentException("Invalid document format"); // TODO: Create custom exception
         }
     }
 

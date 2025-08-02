@@ -26,5 +26,29 @@ public class Account{
         this.status = status;
     }
 
+    public EntityId getId() {
+        return id;
+    }
+
+    public EntityId getUserId() {
+        return userId;
+    }   
+
+    public Money getBalance() {
+        return balance;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+    public void setStatus(Status status) {
+        if (status == null) {
+            throw new IllegalArgumentException("Status cannot be null");
+        }
+        this.status = status;
+    }
+
+    
+
 }
 

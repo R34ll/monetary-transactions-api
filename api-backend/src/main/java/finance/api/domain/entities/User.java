@@ -1,10 +1,8 @@
 package finance.api.domain.entities;
 
 import finance.api.domain.valueobjects.Document;
-import finance.api.domain.valueobjects.DocumentFactory;
 import finance.api.domain.valueobjects.Email;
 import finance.api.domain.valueobjects.EntityId;
-import finance.api.domain.valueobjects.Money;
 import finance.api.domain.valueobjects.Name;
 import finance.api.domain.valueobjects.Password;
 
@@ -34,5 +32,24 @@ public class User{
         this.document = document;
         this.userType = userType;
     }
+    public EntityId getId() {
+        return id;
+    }
+    public Name getName() {
+        return name;
+    }
+    public Email getEmail() {
+        return email;   
+    }
+    public Password getPassword() {
+        return password;
+    }
+    public Document getDocument() { 
+        return document;
+    }
+    public UserType getUserType() {
+        return userType;    
+    }
+    
 
 }

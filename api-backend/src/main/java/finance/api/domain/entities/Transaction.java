@@ -16,7 +16,7 @@ public class Transaction{
     private final Money amount;
     
     private final Timestamp timestamp;
-    private final Status status;
+    private Status status;
 
     public Transaction(EntityId id, EntityId fromAccount, EntityId toAccount, Money amount, Timestamp timestamp, Status status) {
         if (id == null || fromAccount == null || toAccount == null || amount == null || timestamp == null || status == null) {
@@ -29,5 +29,34 @@ public class Transaction{
         this.timestamp = timestamp;
         this.status = status;
     }
+
+    public EntityId getId() {
+        return id;
+    }
+
+    public EntityId getFromAccountId() {
+        return fromAccountId;
+    }
+
+    public EntityId getToAccountId() {
+        return toAccountId;
+    }
+
+    public Money getAmount() {
+        return amount;
+    }
+    public Timestamp getTimestamp() {
+        return timestamp;
+    }
+    public Status getStatus() {
+        return status;
+    }
+    public void setStatus(Status status) {
+        if (status == null) {
+            throw new IllegalArgumentException("Status cannot be null");
+        }
+        this.status = status;
+    }
+
 
 }

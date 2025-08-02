@@ -1,1 +1,3 @@
-api-backend/target
+**/target/
+/api-backend/target/
+**/build/
