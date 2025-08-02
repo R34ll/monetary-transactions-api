@@ -16,7 +16,7 @@ public class Transaction{
     private final Money amount;
     
     private final Timestamp timestamp;
-    private final Status status;
+    private Status status;
 
     public Transaction(EntityId id, EntityId fromAccount, EntityId toAccount, Money amount, Timestamp timestamp, Status status) {
         if (id == null || fromAccount == null || toAccount == null || amount == null || timestamp == null || status == null) {
@@ -57,6 +57,6 @@ public class Transaction{
         }
         this.status = status;
     }
-    
+
 
 }

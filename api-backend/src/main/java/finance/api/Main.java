@@ -18,7 +18,7 @@ public class Main {
         Name name = new Name("John doe");
         Email email = new Email("john@doe.com");
         Password password = new Password("@securePassword123");
-        Document document = DocumentFactory.create("13456338860"); // Assuming DocumentFactory is implemented
+        Document document = DocumentFactory.create("13456338860"); // Example CPF
 
         User user = new User(
             cpfId,

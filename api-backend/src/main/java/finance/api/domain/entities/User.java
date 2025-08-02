@@ -1,10 +1,8 @@
 package finance.api.domain.entities;
 
 import finance.api.domain.valueobjects.Document;
-import finance.api.domain.valueobjects.DocumentFactory;
 import finance.api.domain.valueobjects.Email;
 import finance.api.domain.valueobjects.EntityId;
-import finance.api.domain.valueobjects.Money;
 import finance.api.domain.valueobjects.Name;
 import finance.api.domain.valueobjects.Password;
 
