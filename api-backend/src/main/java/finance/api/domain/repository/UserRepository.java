@@ -1,5 +1,11 @@
 package finance.api.domain.repository;
 
-public class UserRepository {
+import finance.api.domain.entities.User;
+import finance.api.domain.valueobjects.EntityId;
+
+public interface UserRepository {
+    User findById(EntityId id);
+    void save(User user);
     
 }
+
