@@ -30,4 +30,33 @@ public class Transaction{
         this.status = status;
     }
 
+    public EntityId getId() {
+        return id;
+    }
+
+    public EntityId getFromAccountId() {
+        return fromAccountId;
+    }
+
+    public EntityId getToAccountId() {
+        return toAccountId;
+    }
+
+    public Money getAmount() {
+        return amount;
+    }
+    public Timestamp getTimestamp() {
+        return timestamp;
+    }
+    public Status getStatus() {
+        return status;
+    }
+    public void setStatus(Status status) {
+        if (status == null) {
+            throw new IllegalArgumentException("Status cannot be null");
+        }
+        this.status = status;
+    }
+    
+
 }
