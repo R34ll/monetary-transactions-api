@@ -23,7 +23,7 @@ jobs:
 
         
       - name: Build with Maven
-        run: mvn clean install -f "/workspaces/monetary-transactions-api-/api-backend/pom.xml"
+        run: mvn clean install -f "api-backend/pom.xml"
 
 
   test:
@@ -41,4 +41,4 @@ jobs:
 
           
       - name: Run Tests
-        run: mvn test -f "/workspaces/monetary-transactions-api-/api-backend/pom.xml"
+        run: mvn test -f "api-backend/pom.xml"
