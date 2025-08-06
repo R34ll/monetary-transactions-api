@@ -1,0 +1,12 @@
+{
+  "name": "Java 21 Workspace",
+  "image": "mcr.microsoft.com/devcontainers/java:21",
+  "customizations": {
+    "vscode": {
+      "extensions": ["vscjava.vscode-java-pack"]
+    }
+  },
+  "features": {
+    "ghcr.io/devcontainers-extra/features/maven-sdkman:2": {}
+  }
+}

@@ -24,6 +24,7 @@ public class Account{
         this.userId = userId;
         this.balance = balance;
         this.status = status;
+
     }
 
     public EntityId getId() {
