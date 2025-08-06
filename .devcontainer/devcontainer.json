@@ -5,5 +5,8 @@
     "vscode": {
       "extensions": ["vscjava.vscode-java-pack"]
     }
+  },
+  "features": {
+    "ghcr.io/devcontainers-extra/features/maven-sdkman:2": {}
   }
 }
