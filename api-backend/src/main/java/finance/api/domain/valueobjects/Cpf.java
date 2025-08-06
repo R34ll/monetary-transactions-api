@@ -5,7 +5,7 @@ import finance.api.domain.exceptions.*;
 public class Cpf extends Document {
 
     public Cpf(String cpf) {
-        super(validate(cpf)); // TODO: executa validação antes de chamar super. FIX
+        super(validate(cpf)); // INFO: executa validação antes de chamar super. FIX
     }
 
     private static String validate(String value) {
