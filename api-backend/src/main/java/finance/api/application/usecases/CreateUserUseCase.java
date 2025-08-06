@@ -22,7 +22,7 @@ public class CreateUserUseCase {
         this.idGenerator = idGenerator;
     }
 
-    public User execute(String name, String email, String password, String documentNumber) {
+    public User execute(String name, String email, String password, String documentNumber) { // TODO: AccountType
 
         Name userName = new Name(name);
         Email userEmail = new Email(email);
