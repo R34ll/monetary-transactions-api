@@ -3,7 +3,7 @@ package finance.api.domain.valueobjects;
 import java.math.BigDecimal;
 
 public final class Money {
-    private final BigDecimal amount; // #TODO: turn this into int
+    private final BigDecimal amount; 
 
     public Money(BigDecimal value) {
         if (value == null) {
