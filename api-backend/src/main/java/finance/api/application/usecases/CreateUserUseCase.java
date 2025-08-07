@@ -22,12 +22,13 @@ public class CreateUserUseCase {
         this.idGenerator = idGenerator;
     }
 
-    public User execute(String name, String email, String password, String documentNumber) { // TODO: AccountType
+    public User execute(String name, String email, String password, String documentNumber, User.UserType userType) { // TODO: AccountType
 
         Name userName = new Name(name);
         Email userEmail = new Email(email);
         Password userPassword = new Password(password);
         Document document = DocumentFactory.create(documentNumber);
+        User.UserType type = userType;
 
         // Check if user already exists
         if(userRepository.findByEmail(userEmail) != null){
@@ -44,7 +45,7 @@ public class CreateUserUseCase {
             userEmail,
             userPassword,
             document,
-            UserType.CUSTOMER
+            type
         );
 
 
