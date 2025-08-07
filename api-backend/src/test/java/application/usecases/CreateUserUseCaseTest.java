@@ -41,7 +41,8 @@ class CreateUserUseCaseTest {
         String email = "joao@email.com";
         String password = "Password123!";
         String documentNumber = "12345678901"; // CPF
-        
+        UserType userType = UserType.CUSTOMER;
+
         EntityId generatedId = new EntityId("user-123");
         when(idGenerator.generateId()).thenReturn(generatedId);
         when(userRepository.findByEmail(any(Email.class))).thenReturn(null);
@@ -53,12 +54,12 @@ class CreateUserUseCaseTest {
             new Email(email),
             new Password(password),
             DocumentFactory.create(documentNumber),
-            UserType.CUSTOMER
+            userType
         );
         when(userRepository.save(any(User.class))).thenReturn(savedUser);
         
         // Act
-        User result = createUserUseCase.execute(name, email, password, documentNumber);
+        User result = createUserUseCase.execute(name, email, password, documentNumber, userType);
         
         // Assert
         assertNotNull(result);
@@ -81,6 +82,7 @@ class CreateUserUseCaseTest {
         String email = "empresa@email.com";
         String password = "Password123!";
         String documentNumber = "12345678000195"; // CNPJ
+        UserType userType = UserType.CUSTOMER;
         
         EntityId generatedId = new EntityId("user-456");
         when(idGenerator.generateId()).thenReturn(generatedId);
@@ -93,12 +95,12 @@ class CreateUserUseCaseTest {
             new Email(email),
             new Password(password),
             DocumentFactory.create(documentNumber),
-            UserType.CUSTOMER
+            userType
         );
         when(userRepository.save(any(User.class))).thenReturn(savedUser);
         
         // Act
-        User result = createUserUseCase.execute(name, email, password, documentNumber);
+        User result = createUserUseCase.execute(name, email, password, documentNumber, userType);
         
         // Assert
         assertNotNull(result);
@@ -113,13 +115,15 @@ class CreateUserUseCaseTest {
         String email = "joao@email.com";
         String password = "Password123!";
         String documentNumber = "12345678901";
+        UserType userType = UserType.CUSTOMER;
         
+
         User existingUser = mock(User.class);
         when(userRepository.findByEmail(any(Email.class))).thenReturn(existingUser);
         
         // Act & Assert
         assertThrows(UserEmailAlreadyExistsException.class, () -> {
-            createUserUseCase.execute(name, email, password, documentNumber);
+            createUserUseCase.execute(name, email, password, documentNumber, userType);
         });
         
         verify(userRepository).findByEmail(any(Email.class));
@@ -135,6 +139,7 @@ class CreateUserUseCaseTest {
         String email = "joao@email.com";
         String password = "Password123!";
         String documentNumber = "12345678901";
+        UserType userType = UserType.CUSTOMER;
         
         User existingUser = mock(User.class);
         when(userRepository.findByEmail(any(Email.class))).thenReturn(null);
@@ -142,7 +147,7 @@ class CreateUserUseCaseTest {
         
         // Act & Assert
         assertThrows(UserDocumentAlreadyExistsException.class, () -> {
-            createUserUseCase.execute(name, email, password, documentNumber);
+            createUserUseCase.execute(name, email, password, documentNumber, userType);
         });
         
         verify(userRepository).findByEmail(any(Email.class));
@@ -158,10 +163,11 @@ class CreateUserUseCaseTest {
         String email = "joao@email.com";
         String password = "Password123!";
         String documentNumber = "12345678901";
+        UserType userType = UserType.CUSTOMER;
         
         // Act & Assert
         assertThrows(NameNullOrBlankException.class, () -> {
-            createUserUseCase.execute(invalidName, email, password, documentNumber);
+            createUserUseCase.execute(invalidName, email, password, documentNumber, userType);
         });
         
         verify(userRepository, never()).findByEmail(any(Email.class));
@@ -176,10 +182,11 @@ class CreateUserUseCaseTest {
         String invalidEmail = "invalid-email";
         String password = "Password123!";
         String documentNumber = "12345678901";
+        UserType userType = UserType.CUSTOMER;
         
         // Act & Assert
         assertThrows(EmailInvalidFormatException.class, () -> {
-            createUserUseCase.execute(name, invalidEmail, password, documentNumber);
+            createUserUseCase.execute(name, invalidEmail, password, documentNumber, userType);
         });
         
         verify(userRepository, never()).findByEmail(any(Email.class));
@@ -194,10 +201,11 @@ class CreateUserUseCaseTest {
         String email = "joao@email.com";
         String invalidPassword = "123"; // Too short
         String documentNumber = "12345678901";
+        UserType userType = UserType.CUSTOMER;
         
         // Act & Assert
         assertThrows(PasswordTooShortException.class, () -> {
-            createUserUseCase.execute(name, email, invalidPassword, documentNumber);
+            createUserUseCase.execute(name, email, invalidPassword, documentNumber, userType);
         });
         
         verify(userRepository, never()).findByEmail(any(Email.class));
@@ -212,10 +220,11 @@ class CreateUserUseCaseTest {
         String email = "joao@email.com";
         String password = "Password123!";
         String invalidDocument = "123"; // Invalid length
+        UserType userType = UserType.CUSTOMER;
         
         // Act & Assert
         assertThrows(IllegalArgumentException.class, () -> {
-            createUserUseCase.execute(name, email, password, invalidDocument);
+            createUserUseCase.execute(name, email, password, invalidDocument, userType);
         });
         
         verify(userRepository, never()).findByEmail(any(Email.class));
@@ -252,10 +261,11 @@ class CreateUserUseCaseTest {
         String email = "joao@email.com";
         String password = "Password123!";
         String documentNumber = "12345678901";
+        UserType userType = UserType.CUSTOMER;
         
         // Act & Assert
         assertThrows(NameInvalidCharactersException.class, () -> {
-            createUserUseCase.execute(nameWithNumbers, email, password, documentNumber);
+            createUserUseCase.execute(nameWithNumbers, email, password, documentNumber, userType);
         });
     }
 
@@ -267,7 +277,9 @@ class CreateUserUseCaseTest {
         String email = "jose@email.com";
         String password = "Password123!";
         String documentNumber = "12345678901";
+        UserType userType = UserType.CUSTOMER;
         
+
         EntityId generatedId = new EntityId("user-789");
         when(idGenerator.generateId()).thenReturn(generatedId);
         when(userRepository.findByEmail(any(Email.class))).thenReturn(null);
@@ -279,12 +291,12 @@ class CreateUserUseCaseTest {
             new Email(email),
             new Password(password),
             DocumentFactory.create(documentNumber),
-            UserType.CUSTOMER
+            userType
         );
         when(userRepository.save(any(User.class))).thenReturn(savedUser);
         
         // Act
-        User result = createUserUseCase.execute(name, email, password, documentNumber);
+        User result = createUserUseCase.execute(name, email, password, documentNumber, userType);
         
         // Assert
         assertNotNull(result);
