@@ -2,6 +2,7 @@ package finance.api.application.usecases;
 
 import java.util.Optional;
 
+import finance.api.application.exceptions.AccountNotFoundException;
 import finance.api.application.services.AccountHasBalanceService;
 import finance.api.application.services.CheckIfAccountIsActiveService;
 import finance.api.application.services.CheckIfSameAccountService;
@@ -31,10 +32,10 @@ public class TransferMoneyToAccountUseCase {
     public Transaction execute(EntityId fromAccountId, EntityId toAccountId, Money transferAmount) {
         // 1. Find the account by accountId
         Account fromAccount = accountRepository.findById(fromAccountId)
-            .orElseThrow(() -> new IllegalArgumentException("Account not found"));
+            .orElseThrow(() -> new AccountNotFoundException());
 
         Account toAccount = accountRepository.findById(toAccountId)
-            .orElseThrow(() -> new IllegalArgumentException("Account do not found"));
+            .orElseThrow(() -> new AccountNotFoundException());
 
         // 2. Account verification
         // Check if are same account
@@ -48,7 +49,7 @@ public class TransferMoneyToAccountUseCase {
 
 
         // 3. Validate the transfer amount
-        // Value can't be less than zero // # TODO: use service
+        // Value can't be less than zero 
         ValidTransferAmountService validTransferAmountService = new ValidTransferAmountService();
         validTransferAmountService.valid(transferAmount); // Transfer amount > 0
 
