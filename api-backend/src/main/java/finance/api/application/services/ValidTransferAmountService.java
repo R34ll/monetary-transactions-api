@@ -1,6 +1,8 @@
 package finance.api.application.services;
 import java.math.BigDecimal;
 
+import finance.api.application.exceptions.InvalidTransactionAmountException;
+import finance.api.application.exceptions.TransferAmountNullException;
 import finance.api.domain.entities.Account;
 import finance.api.domain.valueobjects.Money;
 
@@ -11,11 +13,11 @@ public class ValidTransferAmountService{
 
     public void valid(Money transferAmount){
         if(transferAmount == null ){
-            throw new IllegalArgumentException("Transfer amount cannot be null");
+            throw new TransferAmountNullException();
         }
 
         if(transferAmount.compareTo(ZERO) < 1){
-            throw new IllegalArgumentException("Invalid amount.");
+            throw new InvalidTransactionAmountException();
         }
 
 
