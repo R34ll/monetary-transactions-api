@@ -12,7 +12,7 @@ public class Account{
 
     private final EntityId id;
     private final EntityId userId;
-    private final Money balance;
+    private Money balance;
     private Status status;
 
 
@@ -47,6 +47,27 @@ public class Account{
             throw new IllegalArgumentException("Status cannot be null");
         }
         this.status = status;
+    }
+
+
+    public void debit(Money amount){
+        if(amount == null){
+            throw new IllegalArgumentException();
+        }
+
+        if(this.balance.compareTo(amount) < 1){
+            throw new IllegalArgumentException();
+        }
+        
+        this.balance = this.balance.subtract(amount);
+    }
+
+    public void credit(Money amount){
+        if(amount == null){
+            throw new IllegalArgumentException();
+        }
+
+        this.balance = this.balance.addition(amount);
     }
 
     

@@ -2,7 +2,7 @@ package finance.api.domain.valueobjects;
 
 import java.math.BigDecimal;
 
-public final class Money {
+public final class Money implements Comparable<Money> {
     private final BigDecimal amount; 
 
     public Money(BigDecimal value) {
@@ -25,4 +25,19 @@ public final class Money {
     public String toString() {
         return amount.toString();
     }
+
+
+    @Override
+    public int compareTo(Money other){
+        return this.amount.compareTo(other.getValue());
+    }
+
+    public Money subtract(Money other){
+        return new Money(this.amount.subtract(other.getValue()));
+    }
+
+    public Money addition(Money other){
+        return new Money(this.amount.add(other.getValue()));
+    }
+
 }
