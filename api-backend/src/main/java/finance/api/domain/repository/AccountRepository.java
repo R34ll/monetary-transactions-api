@@ -7,9 +7,9 @@ import finance.api.domain.entities.User;
 import finance.api.domain.valueobjects.EntityId;
 
 public interface AccountRepository {
-  Account findById(EntityId id);
+  Optional<Account> findById(EntityId id);
   Account save(Account account);
   Optional<Account> findByUserId(EntityId userId); // Search account by userId
-  Optional<User> findUserById(EntityId userId); // Search user Check if user exist
+  Optional<User> findUserById(EntityId accountId); // Search user Check if user exist
 
 } 
