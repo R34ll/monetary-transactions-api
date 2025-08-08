@@ -2,7 +2,7 @@ package finance.api.domain.valueobjects;
 
 import java.math.BigDecimal;
 
-public final class Money {
+public final class Money implements Comparable<Money> {
     private final BigDecimal amount; 
 
     public Money(BigDecimal value) {
