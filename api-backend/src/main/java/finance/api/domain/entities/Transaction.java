@@ -1,9 +1,8 @@
 package finance.api.domain.entities;
 
-import java.security.Timestamp;
-
 import finance.api.domain.valueobjects.EntityId;
 import finance.api.domain.valueobjects.Money;
+import finance.api.domain.valueobjects.Timestamp;
 
 public class Transaction{
     public enum Status{

@@ -31,9 +31,13 @@ public final class Money implements Comparable<Money>{
     public int compareTo(Money other){
         return this.amount.compareTo(other.getValue());
     }
-    
+
     public Money subtract(Money other){
-        return this.amount.subtract(other.getValue());
+        return new Money(this.amount.subtract(other.getValue()));
+    }
+
+    public Money addition(Money other){
+        return new Money(this.amount.add(other.getValue()));
     }
 
 }
