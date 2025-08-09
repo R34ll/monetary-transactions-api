@@ -37,18 +37,13 @@ public class TransferMoneyToAccountUseCase {
         Account toAccount = accountRepository.findById(toAccountId)
             .orElseThrow(() -> new AccountNotFoundException());
 
-        // 2. Account verification
-        // Check if are same account
-        CheckIfSameAccountService checkIfSameAccountService = new CheckIfSameAccountService();
-        checkIfSameAccountService.check(fromAccount, toAccount);
-
-        // check if they are active
+            
+        // 2. Check if they are active
         CheckIfAccountIsActiveService checkIfAccountIsActiveService = new CheckIfAccountIsActiveService();
         checkIfAccountIsActiveService.check(toAccount);
         checkIfAccountIsActiveService.check(fromAccount);
-
-
-        // 3. Validate the transfer amount
+        
+        // 3. Validate the transfer amount (amount > 0)
         // Value can't be less than zero 
         ValidTransferAmountService validTransferAmountService = new ValidTransferAmountService();
         validTransferAmountService.valid(transferAmount); // Transfer amount > 0
@@ -57,29 +52,23 @@ public class TransferMoneyToAccountUseCase {
         AccountHasBalanceService accountHasBalanceService = new AccountHasBalanceService();
         accountHasBalanceService.check(fromAccount, transferAmount); // (Account balance - Transfer amount) > 0
 
+
         // 4. Update the account's balance
         fromAccount.debit(transferAmount);
         toAccount.credit(transferAmount);
 
 
-        // 5. Create Transaction
-        EntityId transactionId = idGenerator.generateId();
-        Timestamp time = new Timestamp(System.currentTimeMillis());
-        Transaction newTransaction = new Transaction(
-            transactionId,    
-            fromAccountId,
-            toAccountId,
-            transferAmount,
-            time,
-            Transaction.Status.COMPLETED
-        );
 
-        // 6. Save the updated account entities
+        // 5. Save the updated account entities
         accountRepository.save(fromAccount);
         accountRepository.save(toAccount);
         
 
-        return transactionRepository.save(newTransaction);
+        // 6. Create Transaction
+        CreateTransactionUseCase createTransactionUseCase = new CreateTransactionUseCase(transactionRepository, accountRepository, idGenerator);
+
+        return createTransactionUseCase.execute(fromAccountId, toAccountId, transferAmount);        
+
     }
 
 
