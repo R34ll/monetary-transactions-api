@@ -4,7 +4,7 @@ package finance.api.application.usecases;
 import finance.api.application.exceptions.AccountNotFoundException;
 import finance.api.application.services.AccountHasBalanceService;
 import finance.api.application.services.CheckIfAccountIsActiveService;
-import finance.api.application.services.CheckIfSameAccountService;;
+import finance.api.application.services.CheckIfSameAccountService;
 import finance.api.application.services.ValidTransferAmountService;
 import finance.api.domain.repository.AccountRepository;
 import finance.api.domain.repository.TransactionRepository;
