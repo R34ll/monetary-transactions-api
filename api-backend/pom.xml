@@ -43,7 +43,7 @@
             <version>3.5.1</version>
         </dependency>
 
-        <dependency>
+        <dependency>git
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot</artifactId>
             <version>3.5.4</version>
