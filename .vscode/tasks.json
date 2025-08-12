@@ -1,0 +1,12 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run Spring Boot API",
+      "type": "shell",
+      "command": "mvn spring-boot:run -f api-backend/pom.xml",
+      "group": "build",
+      "problemMatcher": []
+    }
+  ]
+}
