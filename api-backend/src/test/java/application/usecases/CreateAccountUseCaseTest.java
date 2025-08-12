@@ -25,6 +25,10 @@ import finance.api.domain.valueobjects.Name;
 import finance.api.domain.valueobjects.Email;
 import finance.api.domain.valueobjects.Password;
 import finance.api.domain.valueobjects.DocumentFactory;
+import finance.api.application.exceptions.AccountAlreadyExistsException;
+import finance.api.application.exceptions.UserNotFoundException;
+
+
 
 class CreateAccountUseCaseTest {
 
@@ -81,11 +85,11 @@ class CreateAccountUseCaseTest {
 
         when(accountRepository.findUserById(userId)).thenReturn(Optional.empty());
 
-        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+        UserNotFoundException exception = assertThrows(UserNotFoundException.class, () -> {
             createAccountUseCase.execute(userId, initialBalance, status);
         });
 
-        assertEquals("User not found with id: user123", exception.getMessage());
+        assertEquals("No user exists with the provided ID", exception.getMessage());
     }
 
     @Test
@@ -114,10 +118,10 @@ class CreateAccountUseCaseTest {
         when(accountRepository.findUserById(userId)).thenReturn(Optional.of(mockUser));
         when(accountRepository.findByUserId(userId)).thenReturn(Optional.of(existingAccount));
 
-        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+        AccountAlreadyExistsException exception = assertThrows(AccountAlreadyExistsException.class, () -> {
             createAccountUseCase.execute(userId, initialBalance, status);
         });
 
-        assertEquals("Account already exists for user with id: user123", exception.getMessage());
+        assertEquals("Account already exists for user with provided id", exception.getMessage());
     }
 }
