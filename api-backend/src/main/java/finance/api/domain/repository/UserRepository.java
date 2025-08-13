@@ -1,5 +1,6 @@
 package finance.api.domain.repository;
 
+
 import finance.api.domain.entities.User;
 import finance.api.domain.valueobjects.EntityId;
 import finance.api.domain.valueobjects.Email;
