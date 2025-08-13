@@ -1,5 +1,6 @@
 package finance.api.adapters.inbound.controllers.web.springboot;
 
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class AccountController{
