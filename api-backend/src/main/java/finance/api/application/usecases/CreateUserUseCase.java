@@ -1,6 +1,8 @@
 package finance.api.application.usecases;
 
 
+import org.springframework.stereotype.Service;
+
 import finance.api.domain.entities.User;
 import finance.api.domain.entities.User.UserType;
 import finance.api.domain.exceptions.UserDocumentAlreadyExistsException;
@@ -13,6 +15,8 @@ import finance.api.domain.valueobjects.Name;
 import finance.api.domain.valueobjects.Password;
 import finance.api.domain.valueobjects.Document;
 
+
+@Service
 public class CreateUserUseCase {
     private UserRepository userRepository;
     private final IdGenerator idGenerator;
