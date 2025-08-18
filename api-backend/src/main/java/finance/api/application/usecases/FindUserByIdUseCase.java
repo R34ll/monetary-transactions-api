@@ -1,4 +1,8 @@
+package finance.api.application.usecases;
 
+import finance.api.domain.repository.UserRepository;
+import finance.api.domain.entities.User;
+import finance.api.domain.valueobjects.EntityId;
 
 public class FindUserByIdUseCase{
     UserRepository userRepository;
@@ -9,7 +13,7 @@ public class FindUserByIdUseCase{
 
 
 
-    public Optional<User> execute(EntityId id){
+    public User execute(EntityId id){
         if(id == null){
             throw new IllegalArgumentException("User ID cannot be null"); // TODO: Create custom exception
         }
