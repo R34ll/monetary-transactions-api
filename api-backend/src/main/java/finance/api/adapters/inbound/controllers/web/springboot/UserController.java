@@ -1,5 +1,9 @@
 package finance.api.adapters.inbound.controllers.web.springboot;
 import finance.api.adapters.dtos.CreateUserRequestDto;
+import finance.api.adapters.dtos.UpdateUserRequestDto;
+import finance.api.adapters.dtos.UserResponseDto;
+
+
 import finance.api.application.usecases.CreateUserUseCase;
 import finance.api.application.usecases.FindUserByIdUseCase;
 import finance.api.domain.entities.User;
