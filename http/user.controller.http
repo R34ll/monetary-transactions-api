@@ -22,3 +22,13 @@ GET {{baseUrl}}/users/c22c7ed7-d957-4edb-896c-822bc80c3fae
 DELETE {{baseUrl}}/users/c22c7ed7-d957-4edb-896c-822bc80c3fae
 
 
+### Update user
+PUT {{baseUrl}}/users/c22c7ed7-d957-4edb-896c-822bc80c3fae
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "john.doe@example.com",
+  "password": "J@hnD0e1",
+  "document": "12345678901"
+}
