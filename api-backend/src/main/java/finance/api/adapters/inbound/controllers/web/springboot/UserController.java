@@ -86,9 +86,7 @@ public class UserController{
     @GetMapping("/{id}")
     public ResponseEntity<UserResponseDto> getUserById(@PathVariable("id") String id) {
         User user = findUserByIdUseCase.execute(new EntityId(id));
-        if (user == null) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-        }
+        if (user == null) return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         return ResponseEntity.ok(UserResponseDto.from(user));
     }
 
@@ -96,21 +94,16 @@ public class UserController{
     @PutMapping("/{id}")
     public ResponseEntity<UserResponseDto> updateUser(@PathVariable("id") String id, @RequestBody CreateUserRequestDto request) {
         User user = UpdateUserByIdUseCase.execute(new EntityId(id), request);
-        if (user == null) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-        }
+        if (user == null) return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         return ResponseEntity.ok(UserResponseDto.from(user));
     }
 
     
-    // @DeleteMapping("/{id}")
-    // public ResponseEntity<Void> deleteUser(@PathVariable("id") String id) {
-    //     boolean deleted = deleteUserByIdUseCase.execute(new EntityId(id));
-    //     if (!deleted) {
-    //         return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-    //     }
-    //     return ResponseEntity.noContent().build();
-    // }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteUser(@PathVariable("id") String id) {
+        deleteUserByIdUseCase.execute(new EntityId(id));
+        return ResponseEntity.noContent().build();
+    }
 
     @GetMapping
     public ResponseEntity<List<UserResponseDto>> listAllUsers() {
@@ -122,3 +115,6 @@ public class UserController{
     }
 
 }   
+
+
+

@@ -1,8 +1,5 @@
 package finance.api.application.usecases;
-
-
 import org.springframework.stereotype.Service;
-
 import finance.api.domain.entities.User;
 import finance.api.domain.entities.User.UserType;
 import finance.api.domain.exceptions.UserDocumentAlreadyExistsException;

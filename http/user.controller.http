@@ -1,4 +1,4 @@
-@baseUrl = https://fictional-potato-4v6x7r5qqpwcx6x-8080.app.github.dev/api
+@baseUrl = https://turbo-train-4v6x7r5qq9p377v7-8080.app.github.dev/api
 
 ### Create User
 POST {{baseUrl}}/users
@@ -10,3 +10,15 @@ Content-Type: application/json
   "password": "J@hnD0e1",
   "document": "12345678901"
 }
+
+
+### Find all User
+GET {{baseUrl}}/users
+
+### Find by Id
+GET {{baseUrl}}/users/c22c7ed7-d957-4edb-896c-822bc80c3fae
+
+### Delete by Id
+DELETE {{baseUrl}}/users/c22c7ed7-d957-4edb-896c-822bc80c3fae
+
+
