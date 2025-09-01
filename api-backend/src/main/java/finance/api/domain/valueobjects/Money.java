@@ -26,6 +26,19 @@ public final class Money implements Comparable<Money> {
         return amount.toString();
     }
 
+    @Override
+    public boolean equals(Object other) {
+        if (this == other) return true;         
+        if (other == null || getClass() != other.getClass()) return false; 
+
+        Money money = (Money) other;
+        return this.compareTo(money) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return amount.stripTrailingZeros().hashCode();
+    }
 
     @Override
     public int compareTo(Money other){
