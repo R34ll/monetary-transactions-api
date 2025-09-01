@@ -9,6 +9,9 @@ import finance.api.domain.services.IdGenerator;
 import finance.api.domain.valueobjects.EntityId;
 import finance.api.domain.valueobjects.Money;
 import finance.api.application.exceptions.UserNotFoundException;
+
+import java.math.BigDecimal;
+
 import finance.api.application.exceptions.AccountAlreadyExistsException;
 
 public class CreateAccountUseCase {
@@ -20,7 +23,7 @@ public class CreateAccountUseCase {
         this.idGenerator = idGenerator;
     }
 
-    public Account execute(EntityId userId, Money initialBalance, Status status) {
+    public Account execute(EntityId userId) {
         // 1. Verify if user exists. 
         accountRepository.findUserById(userId)
             .orElseThrow(() -> new UserNotFoundException());
@@ -32,7 +35,12 @@ public class CreateAccountUseCase {
 
         // 3. Create and save account
         EntityId accountId = idGenerator.generateId();
-        Account account = new Account(accountId, userId, initialBalance, status);
+        Account account = new Account(
+            accountId, 
+            userId, 
+            new Money(BigDecimal.ZERO), 
+            Account.Status.ACTIVE
+        );
         return accountRepository.save(account);
     }
 }

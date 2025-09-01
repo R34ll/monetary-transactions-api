@@ -50,8 +50,8 @@ class CreateAccountUseCaseTest {
     @DisplayName("Should create account successfully")
     void shouldCreateAccountSuccessfully() {
         EntityId userId = new EntityId("user123");
-        Money initialBalance = new Money(BigDecimal.valueOf(1000));
-        Status status = Status.ACTIVE;
+        Money initialBalance = new Money(BigDecimal.ZERO);
+        // Status status = Status.ACTIVE;
 
         User mockUser = new User(
             userId,
@@ -67,7 +67,7 @@ class CreateAccountUseCaseTest {
         when(accountRepository.findByUserId(userId)).thenReturn(Optional.empty());
         when(accountRepository.save(any(Account.class))).thenAnswer(invocation -> invocation.getArgument(0));
 
-        Account createdAccount = createAccountUseCase.execute(userId, initialBalance, status);
+        Account createdAccount = createAccountUseCase.execute(userId);
 
         assertNotNull(createdAccount);
         assertEquals("account123", createdAccount.getId().getValue());
@@ -80,13 +80,13 @@ class CreateAccountUseCaseTest {
     @DisplayName("Should throw exception when user not found")
     void shouldThrowExceptionWhenUserNotFound() {
         EntityId userId = new EntityId("user123");
-        Money initialBalance = new Money(BigDecimal.valueOf(1000));
-        Status status = Status.ACTIVE;
+        // Money initialBalance = new Money(BigDecimal.valueOf(1000));
+        // Status status = Status.ACTIVE;
 
         when(accountRepository.findUserById(userId)).thenReturn(Optional.empty());
 
         UserNotFoundException exception = assertThrows(UserNotFoundException.class, () -> {
-            createAccountUseCase.execute(userId, initialBalance, status);
+            createAccountUseCase.execute(userId);
         });
 
         assertEquals("No user exists with the provided ID", exception.getMessage());
@@ -96,8 +96,8 @@ class CreateAccountUseCaseTest {
     @DisplayName("Should throw exception when account already exists")
     void shouldThrowExceptionWhenAccountAlreadyExists() {
         EntityId userId = new EntityId("user123");
-        Money initialBalance = new Money(BigDecimal.valueOf(1000));
-        Status status = Status.ACTIVE;
+        // Money initialBalance = new Money(BigDecimal.valueOf(1000));
+        // Status status = Status.ACTIVE;
 
         User mockUser = new User(
             userId,
@@ -119,7 +119,7 @@ class CreateAccountUseCaseTest {
         when(accountRepository.findByUserId(userId)).thenReturn(Optional.of(existingAccount));
 
         AccountAlreadyExistsException exception = assertThrows(AccountAlreadyExistsException.class, () -> {
-            createAccountUseCase.execute(userId, initialBalance, status);
+            createAccountUseCase.execute(userId);
         });
 
         assertEquals("Account already exists for user with provided id", exception.getMessage());
