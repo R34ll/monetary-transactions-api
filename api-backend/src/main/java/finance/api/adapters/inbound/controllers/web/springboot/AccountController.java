@@ -38,7 +38,7 @@ public class AccountController {
     // 6. List all transactions of account
     // 7. Return balance
     // 8. Get user's account
-    // 9. Switch Account  status
+    // 9. Switch Account status
 
     private final CreateAccountUseCase createAccountUseCase;
     private final FindAccountByIdUseCase findAccountByIdUseCase;
