@@ -45,7 +45,7 @@ public class AccountController {
     private final DeleteAccountByIdUseCase deleteAccountByIdUseCase;
     private final UpdateAccountByIdUseCase updateAccountByIdUseCase;
 
-    @Autowired
+@Autowired
     public AccountController(
             CreateAccountUseCase createAccountUseCase,
             FindAccountByIdUseCase findAccountByIdUseCase,
