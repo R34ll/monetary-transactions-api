@@ -2,6 +2,9 @@ package finance.api.application.usecases;
 
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import finance.api.application.exceptions.AccountNotFoundException;
 import finance.api.application.services.AccountHasBalanceService;
 import finance.api.application.services.CheckIfAccountIsActiveService;
@@ -18,11 +21,14 @@ import finance.api.domain.valueobjects.EntityId;
 import finance.api.domain.valueobjects.Money;
 import finance.api.domain.valueobjects.Timestamp;
 
+
+@Service
 public class TransferMoneyToAccountUseCase {
     private final TransactionRepository transactionRepository;
     private final AccountRepository accountRepository;
     private final IdGenerator idGenerator;
 
+    @Autowired
     public TransferMoneyToAccountUseCase(TransactionRepository transactionRepository, AccountRepository accountRepository, IdGenerator idGenerator) {
         this.transactionRepository = transactionRepository;
         this.accountRepository = accountRepository;
