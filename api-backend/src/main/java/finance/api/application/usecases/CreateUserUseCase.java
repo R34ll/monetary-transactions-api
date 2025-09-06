@@ -1,4 +1,5 @@
 package finance.api.application.usecases;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import finance.api.domain.entities.User;
 import finance.api.domain.entities.User.UserType;
@@ -18,6 +19,7 @@ public class CreateUserUseCase {
     private UserRepository userRepository;
     private final IdGenerator idGenerator;
 
+    @Autowired
     public CreateUserUseCase(UserRepository userRepository, IdGenerator idGenerator) {
         this.userRepository = userRepository;
         this.idGenerator = idGenerator;

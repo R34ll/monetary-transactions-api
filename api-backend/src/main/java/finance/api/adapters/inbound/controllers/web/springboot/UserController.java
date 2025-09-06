@@ -78,6 +78,7 @@ public class UserController{
             request.document(),
             UserType.CUSTOMER
         );
+        System.out.println("User ID: " + user.getId().getValue());
         return ResponseEntity.status(HttpStatus.CREATED).body(UserResponseDto.from(user));
     }
 

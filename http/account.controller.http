@@ -1,0 +1,12 @@
+@baseUrl = https://expert-palm-tree-4v6x7r5qqv5hjj5r-8080.app.github.dev/api
+
+### Create User
+POST {{baseUrl}}/accounts
+Content-Type: application/json
+
+{
+  "userId": "813d81bf-2b9c-44fc-8de4-26dcb8f661eb"
+}
+
+### Find account by Id
+GET {{baseUrl}}/accounts/8382ae0b-d095-4b62-a869-69a691aa85ac

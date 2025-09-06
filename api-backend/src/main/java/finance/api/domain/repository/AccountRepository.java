@@ -2,6 +2,9 @@ package finance.api.domain.repository;
 
 import java.util.Optional;
 
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+
 import finance.api.domain.entities.Account;
 import finance.api.domain.entities.User;
 import finance.api.domain.valueobjects.EntityId;
