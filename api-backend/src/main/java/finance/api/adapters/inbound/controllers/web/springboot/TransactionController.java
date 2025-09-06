@@ -69,7 +69,7 @@ public class TransactionController {
     @GetMapping
     public ResponseEntity<List<TransactionResponseDto>> getAllAccountTransactions(@RequestBody String accountId) {
         List<Transaction> transactionList = findAllAccountTransactionsUseCase.execute(new EntityId(accountId));
-        if (transactionList.size() == 0)
+        if (transactionList.size() == 0) // .isEmpty()
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 
         Stream<Transaction> transactionStream = transactionList.stream();
