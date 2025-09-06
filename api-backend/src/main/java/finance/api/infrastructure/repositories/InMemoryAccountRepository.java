@@ -22,7 +22,7 @@ public class InMemoryAccountRepository implements AccountRepository{
         return storage.get(account.getId());
     }
 
-    @Override
+    @Override 
     public Optional<Account> findById(EntityId accountId) { // TODO: Handle Optional return
         // Account account = storage.get(accountId);
         // return account;
@@ -33,7 +33,7 @@ public class InMemoryAccountRepository implements AccountRepository{
             }
         }
 
-        return null;
+        return Optional.empty();
     }
 
     @Override
@@ -43,7 +43,7 @@ public class InMemoryAccountRepository implements AccountRepository{
                 return Optional.of(account);
             }
         }
-        return null;
+        return Optional.empty();
     }
 
     @Override
@@ -54,8 +54,8 @@ public class InMemoryAccountRepository implements AccountRepository{
 
         //         return Optional.of(account.getUserId());
         //     }
-        // }c
-        return null;
+        // }
+        return Optional.empty();
     }
 
 }
