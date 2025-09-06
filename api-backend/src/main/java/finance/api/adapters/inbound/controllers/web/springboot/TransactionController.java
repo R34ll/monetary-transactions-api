@@ -28,7 +28,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 
 @RestController
-@RequestMapping("/transactions")
+@RequestMapping("/api/transactions")
 public class TransactionController {
     // 1. Create new Transaction
     // 2. List all Transactions
@@ -41,8 +41,9 @@ public class TransactionController {
 
     @Autowired
     public TransactionController(TransferMoneyToAccountUseCase transferMoneyToAccountUseCase,
-            FindTransactionByIdUseCase findTransactionByIdUseCase,
-            FindAllAccountTransactionsUseCase findAllAccountTransactionsUseCase) {
+                                FindTransactionByIdUseCase findTransactionByIdUseCase,
+                                FindAllAccountTransactionsUseCase findAllAccountTransactionsUseCase) 
+    {
         this.transferMoneyToAccountUseCase = transferMoneyToAccountUseCase;
         this.findTransactionByIdUseCase = findTransactionByIdUseCase;
         this.findAllAccountTransactionsUseCase = findAllAccountTransactionsUseCase;
@@ -55,10 +56,11 @@ public class TransactionController {
                 new EntityId(request.toAccount()),
                 new Money(new BigDecimal(request.balance())));
 
+        System.out.println("Transaction ID: "+ newTransaction.getId().getValue());
         return ResponseEntity.ok(TransactionResponseDto.from(newTransaction));
     }
 
-    @GetMapping
+    @GetMapping("/{id}")
     public ResponseEntity<TransactionResponseDto> getTransactionById(@PathVariable("id") String id) {
         Transaction transaction = findTransactionByIdUseCase.execute(new EntityId(id));
         if (transaction == null)
@@ -66,7 +68,7 @@ public class TransactionController {
         return ResponseEntity.ok(TransactionResponseDto.from(transaction));
     }
 
-    @GetMapping
+    @GetMapping("/account/{accountId}")
     public ResponseEntity<List<TransactionResponseDto>> getAllAccountTransactions(@RequestBody String accountId) {
         List<Transaction> transactionList = findAllAccountTransactionsUseCase.execute(new EntityId(accountId));
         if (transactionList.size() == 0) // .isEmpty()

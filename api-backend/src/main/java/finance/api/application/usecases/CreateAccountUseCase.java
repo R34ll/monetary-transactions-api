@@ -12,12 +12,18 @@ import finance.api.application.exceptions.UserNotFoundException;
 
 import java.math.BigDecimal;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import finance.api.application.exceptions.AccountAlreadyExistsException;
 
+
+@Service
 public class CreateAccountUseCase {
     private final AccountRepository accountRepository;
     private final IdGenerator idGenerator;
 
+    @Autowired
     public CreateAccountUseCase(AccountRepository accountRepository, IdGenerator idGenerator) {
         this.accountRepository = accountRepository;
         this.idGenerator = idGenerator;

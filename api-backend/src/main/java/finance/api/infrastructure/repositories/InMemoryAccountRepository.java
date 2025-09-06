@@ -3,12 +3,15 @@ package finance.api.infrastructure.repositories;
 import java.util.Map;
 import java.util.Optional;
 
+import org.springframework.stereotype.Repository;
+
 import finance.api.domain.entities.Account;
 import finance.api.domain.entities.User;
 import finance.api.domain.repository.AccountRepository;
 import finance.api.domain.valueobjects.EntityId;
 import java.util.HashMap;
 
+@Repository
 public class InMemoryAccountRepository implements AccountRepository{
     private Map<EntityId, Account> storage = new HashMap<>();
 

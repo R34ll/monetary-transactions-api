@@ -1,4 +1,4 @@
-@baseUrl = https://turbo-train-4v6x7r5qq9p377v7-8080.app.github.dev/api
+@baseUrl = https://ubiquitous-train-gr6gqpj4g5g29rpp-8080.app.github.dev/api
 
 ### Create User
 POST {{baseUrl}}/users

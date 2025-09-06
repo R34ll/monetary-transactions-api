@@ -62,6 +62,7 @@ public class AccountController {
     @PostMapping
     public ResponseEntity<CreateAccountResponseDto> createAccount(@RequestBody CreateAccountRequestDto request) {
         Account account = createAccountUseCase.execute(new EntityId(request.userId()));
+        System.out.println("Account ID: " + account.getId().getValue());
         return ResponseEntity.status(HttpStatus.CREATED).body(CreateAccountResponseDto.from(account));
     }
 
@@ -73,7 +74,7 @@ public class AccountController {
     }
 
     // @PutMapping("/{id}")
-    // public ResponseEntity<Account> updateAccount(@RequestBody UpdateAccountDto request) {
+    // public ResponseEntity<Account> updateAccount(@RequestBody UpdateAccountDto requzzzest) {
     //     Account account = updateAccountByIdUseCase.execute(new EntityId(request.id()), request);
     //     if (account == null)
     //         return ResponseEntity.status(HttpStatus.NOT_FOUND).build();

@@ -1,0 +1,14 @@
+@baseUrl = localhost:8080/api
+
+### Create User
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "john.doe@example.com",
+  "password": "J@hnD0e1",
+  "document": "12345678901"
+}
+
+
