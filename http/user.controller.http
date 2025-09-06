@@ -1,4 +1,4 @@
-@baseUrl = https://ubiquitous-train-gr6gqpj4g5g29rpp-8080.app.github.dev/api
+@baseUrl = https://expert-palm-tree-4v6x7r5qqv5hjj5r-8080.app.github.dev/api
 
 ### Create User
 POST {{baseUrl}}/users
@@ -16,7 +16,7 @@ Content-Type: application/json
 GET {{baseUrl}}/users
 
 ### Find by Id
-GET {{baseUrl}}/users/c22c7ed7-d957-4edb-896c-822bc80c3fae
+GET {{baseUrl}}/users/813d81bf-2b9c-44fc-8de4-26dcb8f661eb
 
 ### Delete by Id
 DELETE {{baseUrl}}/users/c22c7ed7-d957-4edb-896c-822bc80c3fae
