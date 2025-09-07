@@ -1,4 +1,4 @@
-package finance.api.application;
+package application.usecases;
 
 class TransferMoneyToAccount {
 
