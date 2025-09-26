@@ -82,10 +82,10 @@ public class AccountController {
     //     return ResponseEntity.ok(AccountResponseDto.from(account));
     // }
 
-    // @DeleteMapping("/{id}")
-    // public ResponseEntity<Void> deleteAccount(@PathVariable("id") String id) {
-    //     deleteAccountByIdUseCase.exeute(new EntityId(id));
-    //     return ResponseEntity.noContent().build();
-    // }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteAccount(@PathVariable("id") String id) {
+        deleteAccountByIdUseCase.execute(new EntityId(id));
+        return ResponseEntity.noContent().build();
+    }
 
 }

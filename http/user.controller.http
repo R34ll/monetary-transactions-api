@@ -1,4 +1,4 @@
-@baseUrl = https://expert-palm-tree-4v6x7r5qqv5hjj5r-8080.app.github.dev/api
+@baseUrl = http://127.0.0.1:8080/api
 
 ### Create User
 POST {{baseUrl}}/users
@@ -16,7 +16,7 @@ Content-Type: application/json
 GET {{baseUrl}}/users
 
 ### Find by Id
-GET {{baseUrl}}/users/813d81bf-2b9c-44fc-8de4-26dcb8f661eb
+GET {{baseUrl}}/users/91486ee9-e4e2-47c3-b9a6-61e72f7845d1
 
 ### Delete by Id
 DELETE {{baseUrl}}/users/c22c7ed7-d957-4edb-896c-822bc80c3fae
