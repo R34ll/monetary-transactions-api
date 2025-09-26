@@ -14,5 +14,7 @@ public interface AccountRepository {
   Account save(Account account);
   Optional<Account> findByUserId(EntityId userId); // Search account by userId
   Optional<User> findUserById(EntityId accountId); // Search user Check if user exist
+  void deleteById(EntityId accountId);
+
 
 } 

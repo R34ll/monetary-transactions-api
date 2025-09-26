@@ -58,6 +58,12 @@ public class InMemoryAccountRepository implements AccountRepository{
         return Optional.empty();
     }
 
+    @Override
+    public void deleteById(EntityId accountId) {
+        storage.remove(accountId); 
+        
+    }
+
 }
 
 
